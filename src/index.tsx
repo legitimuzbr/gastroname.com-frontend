@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
+import Home from './routes/Home';
 import Menu from './routes/Menu';
+
 
 import {
   createBrowserRouter,
@@ -14,6 +16,10 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
   {
     path: "/:menu_id",
     element: <Menu />
