@@ -4,7 +4,7 @@ export default function Card() {
 
   const { menu_id } = useParams()
 
-  if(menu_id !== "42") {
+  if(menu_id !== "pizza-do-ze") {
     return <>Menu não encontrado</>
   }
 
