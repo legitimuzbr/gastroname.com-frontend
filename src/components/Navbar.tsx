@@ -13,7 +13,7 @@ export default function Navbar() {
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" />
             <button className="btn btn-outline-success me-2" type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-            <button className="btn btn-outline-success" type="submit"><FontAwesomeIcon icon={faCartShopping} /></button>
+            <button className="btn btn-outline-success d-flex align-items-center" type="submit"><FontAwesomeIcon icon={faCartShopping} /> <span className="me-2"></span>3</button>
           </form>
         </div>
       </nav>
