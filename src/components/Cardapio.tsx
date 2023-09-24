@@ -1,6 +1,9 @@
 import Card from "./Card"
+import { useParams } from "react-router-dom";
 
-export default function Menu() {
+export default function Cardapio() {
+
+  const { menu_id } = useParams()
 
   return (
     <>

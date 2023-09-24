@@ -1,4 +1,12 @@
+import { useParams } from "react-router-dom";
+
 export default function Card() {
+
+  const { menu_id } = useParams()
+
+  if(menu_id !== "42") {
+    return <>Menu não encontrado</>
+  }
 
   return (
     <>
@@ -9,7 +17,7 @@ export default function Card() {
                 <div className="card-body">
                   <h5 className="card-title">Pizza de calabresa</h5>
                   <p className="card-text">Desfrute da harmonia perfeita entre calabresa suculenta, cebolas crocantes e queijo derretido. Massa fina e sabor inigualável, remetendo às tradicionais pizzarias italianas. Transforme sua noite com esta delícia. Peça já! 🍕</p>
-                  <p className="card-text text-success fw-bold">R$ 123,92</p>
+                  <p className="card-text text-success fw-bold">R$ {menu_id}</p>
                 </div>
               </div>
     </>
