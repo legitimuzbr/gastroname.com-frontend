@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar bg-dark sticky-top py-4" data-bs-theme="dark">
+      <nav className="navbar bg-dark sticky-top py-3" data-bs-theme="dark">
         <div className="container-fluid justify-content-center">
           <a className="navbar-brand h1">Gastroname</a>
           <form className="d-flex" role="search">
