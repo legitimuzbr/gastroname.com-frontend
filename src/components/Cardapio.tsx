@@ -10,6 +10,7 @@ export default function Cardapio() {
         <div className="row justify-content-center">
           <div className="col-lg-4">
             <Card />
+            <Card />
           </div>
         </div>
       </div>
