@@ -1,7 +1,6 @@
-import ItemForm from "../Components/ItemForm"
+import ItemForm from "../Components/ItemForm";
 
 export default function Edit() {
-
   return (
     <div className="container py-5">
       <div className="row justify-content-center">
@@ -10,5 +9,5 @@ export default function Edit() {
         </div>
       </div>
     </div>
-  )
+  );
 }

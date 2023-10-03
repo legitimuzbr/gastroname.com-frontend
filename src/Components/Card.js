@@ -1,6 +1,6 @@
 export default function Card(props) {
-  return (    
-    <div className="card mb-3" style={{width: "18rem;"}}>
+  return (
+    <div className="card mb-3" style={{ width: "18rem;" }}>
       <img src={props.image} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
@@ -8,5 +8,5 @@ export default function Card(props) {
         <span class="badge rounded-pill text-bg-success">R$ {props.price}</span>
       </div>
     </div>
-  )
+  );
 }
