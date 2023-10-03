@@ -9,6 +9,7 @@ import {
 
 import Menu from './Pages/Menu';
 import Edit from './Pages/Edit';
+import Categories from './Components/Categories';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/edit/:userId",
     element: <Edit />,
+  },
+  {
+    path: "/categories",
+    element: <Categories />,
   },
 ]);
 
