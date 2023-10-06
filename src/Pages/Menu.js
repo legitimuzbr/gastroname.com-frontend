@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../Components/Navbar";
-import Cardapio from "../Components/Cardapio";
+import Items from "./Items";
 
 const Menu = () => {
   const { userId } = useParams();
@@ -27,36 +26,35 @@ const Menu = () => {
     <>
       {/* Pre-render images */}
       <div className="d-none">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <img src={item.image} />
         ))}
       </div>
 
-      <div className="container mt-5">
-        <h1>Cardápio</h1>
+      <div className="container mt-5 align-items-center">
+        <h2 className="mb-4">Gastroname</h2>
+        {!selectedCategory && (
+          <div className="row">
+            {categories.map((category, index) => (
+              <div className="col-md-4 mb-3" key={index}>
+                <button
+                  className={`btn w-100 p-3 ${
+                    category === selectedCategory
+                      ? "btn-dark"
+                      : "btn-outline-dark"
+                  } border rounded`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
 
-        <div className="d-flex flex-column mt-3">
-          {!selectedCategory && (
-            <div>
-              {categories.map((category) => (
-                <div>
-                  <button
-                    key={category}
-                    className="btn btn-primary mb-2"
-                    onClick={() => setSelectedCategory(category)}
-                  >
-                    {category}
-                  </button>
-                  <br />
-                </div>
-              ))}
-            </div>
-          )}
-
-          {selectedCategory && (
-            <Cardapio items={items} setSelectedCategory={setSelectedCategory} />
-          )}
-        </div>
+        {selectedCategory && (
+          <Items items={items} setSelectedCategory={setSelectedCategory} />
+        )}
       </div>
     </>
   );

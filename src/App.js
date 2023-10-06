@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 
 import Menu from "./Pages/Menu";
-import Items from "./Pages/Items";
-import Item from "./Pages/Item";
+import Edit from "./Pages/Edit";
 
 export default function App() {
   return (
@@ -10,6 +9,7 @@ export default function App() {
       <Routes>
         <Route index element={<h1>Gastroname</h1>} />
         <Route path="/:userId" element={<Menu />} />
+        <Route path="/:userId/edit" element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );
