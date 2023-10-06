@@ -5,8 +5,22 @@ import { useParams } from "react-router-dom";
 export default function ItemForm() {
   const { userId } = useParams(); // Captura o parâmetro da URL
 
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://api.gastroname.com/getCategoriesByUserId?id=${userId}`)
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar os dados:", error);
+      });
+  }, []);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState(null);
 
@@ -54,6 +68,18 @@ export default function ItemForm() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
+      </div>
+      <div className="mb-3">
+        <select
+          class="form-select"
+          aria-label="Selecione a categoria"
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option selected>Selecione a categoria</option>
+          <option value="Sobremesa">Sobremesa</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
       </div>
       <div className="mb-3">
         <label className="form-label">Preço</label>

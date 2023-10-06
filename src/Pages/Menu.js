@@ -33,7 +33,7 @@ const Menu = () => {
 
       <div className="container mt-5 align-items-center">
         <div className="d-flex justify-content-between">
-          <h2 className="mb-4">Gastroname</h2>
+          <h2 className="mb-4">Pizza do Seu Zé</h2>
           {selectedCategory && (
             <button
               className="btn btn-success mb-3"
