@@ -34,6 +34,7 @@ const Menu = () => {
 
       <div className="container mt-5">
         <h1>Cardápio</h1>
+
         <div className="d-flex flex-column mt-3">
           {!selectedCategory && (
             <div>
@@ -52,7 +53,9 @@ const Menu = () => {
             </div>
           )}
 
-          {selectedCategory && <Cardapio items={items} />}
+          {selectedCategory && (
+            <Cardapio items={items} setSelectedCategory={setSelectedCategory} />
+          )}
         </div>
       </div>
     </>

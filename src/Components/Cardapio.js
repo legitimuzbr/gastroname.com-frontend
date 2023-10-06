@@ -1,10 +1,16 @@
 import Card from "./Card";
 
-const Cardapio = ({ items }) => {
+const Cardapio = ({ items, setSelectedCategory }) => {
   return (
     <>
       <div className="container py-3">
         <div className="row">
+          <button
+            className="btn btn-secondary my-3"
+            onClick={() => setSelectedCategory(null)}
+          >
+            Voltar
+          </button>
           {items.map((item, index) => (
             <div className="col-6 col-md-4 col-lg-3">
               <Card
