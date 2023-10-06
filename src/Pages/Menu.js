@@ -32,7 +32,17 @@ const Menu = () => {
       </div>
 
       <div className="container mt-5 align-items-center">
-        <h2 className="mb-4">Gastroname</h2>
+        <div className="d-flex justify-content-between">
+          <h2 className="mb-4">Gastroname</h2>
+          {selectedCategory && (
+            <button
+              className="btn btn-success mb-3"
+              onClick={() => setSelectedCategory(null)}
+            >
+              Voltar
+            </button>
+          )}
+        </div>
         {!selectedCategory && (
           <div className="row">
             {categories.map((category, index) => (
