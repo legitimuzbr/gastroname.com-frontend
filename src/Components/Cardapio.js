@@ -1,8 +1,6 @@
 import Card from "./Card";
 
 const Cardapio = ({ items }) => {
-
-
   return (
     <>
       <div className="container py-3">
@@ -22,6 +20,6 @@ const Cardapio = ({ items }) => {
       </div>
     </>
   );
-}
+};
 
 export default Cardapio;
