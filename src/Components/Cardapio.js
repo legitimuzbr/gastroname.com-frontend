@@ -1,23 +1,7 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
 import Card from "./Card";
 
-export default function Cardapio() {
-  const { userId } = useParams();
+const Cardapio = ({ items }) => {
 
-  const [items, setItems] = useState([]);
-
-  const getItems = async () => {
-    return await axios
-      .get(`https://api.gastroname.com/getItemsByUserId?id=${userId}`)
-      .then((res) => setItems(res.data));
-  };
-
-  useEffect(() => {
-    getItems();
-  }, []);
 
   return (
     <>
@@ -39,3 +23,5 @@ export default function Cardapio() {
     </>
   );
 }
+
+export default Cardapio;
