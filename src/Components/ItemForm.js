@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function ItemForm() {
@@ -29,9 +29,12 @@ export default function ItemForm() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("categoryId", category);
     formData.append("image", image);
     formData.append("price", price);
     formData.append("userId", userId);
+
+    console.log(formData);
 
     try {
       await axios.post("https://api.gastroname.com/addItem", formData, {
@@ -76,9 +79,11 @@ export default function ItemForm() {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option selected>Selecione a categoria</option>
-          <option value="Sobremesa">Sobremesa</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          {categories.map((category, index) => (
+            <option key={index} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className="mb-3">
