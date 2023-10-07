@@ -6,19 +6,29 @@ import Items from "./Items";
 const Menu = () => {
   const { userId } = useParams();
 
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = async () => {
+    return await axios
+      .get(`http://localhost:4000/getCategoriesByUserId?id=${userId}`)
+      .then((res) => setCategories(res.data));
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
     return await axios
-      .get(`https://api.gastroname.com/getItemsByUserId?id=${userId}`)
+      .get(`http://localhost:4000/getItemsByUserId?id=${userId}`)
       .then((res) => setItems(res.data));
   };
 
   useEffect(() => {
     getItems();
   }, []);
-
-  const categories = ["Sobremesas", "Bebidas", "Pratos Principais"];
 
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -55,7 +65,7 @@ const Menu = () => {
                   } border rounded`}
                   onClick={() => setSelectedCategory(category)}
                 >
-                  {category}
+                  {category.name}
                 </button>
               </div>
             ))}

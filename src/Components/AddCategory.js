@@ -14,15 +14,21 @@ export default function AddCategory() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:4000/addCategory", {
-        name: name,
-        userId: userId,
+      const formData = new URLSearchParams();
+      formData.append("name", name);
+      formData.append("userId", userId);
+  
+      await axios.post("http://localhost:4000/addCategory", formData, {
+          headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+          }
       });
+      
       alert("Enviado com sucesso!");
-    } catch (error) {
+  } catch (error) {
       console.error(error);
       alert("Erro ao enviar!");
-    }
+  }
   };
 
   return (
@@ -35,6 +41,7 @@ export default function AddCategory() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <button type="submit">Enviar</button>
       </div>
     </form>
   );
