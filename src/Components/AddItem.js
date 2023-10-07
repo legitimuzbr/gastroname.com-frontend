@@ -9,7 +9,7 @@ export default function AddItem() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/getCategoriesByUserId?id=${userId}`)
+      .get(`https://api.gastroname.com/getCategoriesByUserId?id=${userId}`)
       .then((response) => {
         setCategories(response.data);
       })
@@ -37,7 +37,7 @@ export default function AddItem() {
     console.log(formData);
 
     try {
-      await axios.post("http://localhost:4000/addItem", formData, {
+      await axios.post("https://api.gastroname.com/addItem", formData, {
         headers: {
           "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
         },

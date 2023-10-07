@@ -17,18 +17,18 @@ export default function AddCategory() {
       const formData = new URLSearchParams();
       formData.append("name", name);
       formData.append("userId", userId);
-  
-      await axios.post("http://localhost:4000/addCategory", formData, {
-          headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-          }
+
+      await axios.post("https://api.gastroname.com/addCategory", formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       });
-      
+
       alert("Enviado com sucesso!");
-  } catch (error) {
+    } catch (error) {
       console.error(error);
       alert("Erro ao enviar!");
-  }
+    }
   };
 
   return (

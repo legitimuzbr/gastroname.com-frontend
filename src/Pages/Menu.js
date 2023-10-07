@@ -10,7 +10,7 @@ const Menu = () => {
 
   const getCategories = async () => {
     return await axios
-      .get(`http://localhost:4000/getCategoriesByUserId?id=${userId}`)
+      .get(`https://api.gastroname.com/getCategoriesByUserId?id=${userId}`)
       .then((res) => setCategories(res.data));
   };
 
@@ -22,7 +22,7 @@ const Menu = () => {
 
   const getItems = async () => {
     return await axios
-      .get(`http://localhost:4000/getItemsByUserId?id=${userId}`)
+      .get(`https://api.gastroname.com/getItemsByUserId?id=${userId}`)
       .then((res) => setItems(res.data));
   };
 
@@ -63,7 +63,7 @@ const Menu = () => {
                       ? "btn-dark"
                       : "btn-outline-dark"
                   } border rounded`}
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => setSelectedCategory(category.id)}
                 >
                   {category.name}
                 </button>
@@ -73,7 +73,7 @@ const Menu = () => {
         )}
 
         {selectedCategory && (
-          <Items items={items} setSelectedCategory={setSelectedCategory} />
+          <Items items={items} selectedCategory={selectedCategory} />
         )}
       </div>
     </>
