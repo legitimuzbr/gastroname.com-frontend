@@ -8,11 +8,6 @@ export default function AddCategory() {
   const [name, setName] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log(name);
-    console.log(userId);
-
-    e.preventDefault();
-
     try {
       const formData = new URLSearchParams();
       formData.append("name", name);

@@ -25,7 +25,6 @@ export default function AddItem() {
   const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
@@ -33,8 +32,6 @@ export default function AddItem() {
     formData.append("image", image);
     formData.append("price", price);
     formData.append("userId", userId);
-
-    console.log(formData);
 
     try {
       await axios.post("https://api.gastroname.com/addItem", formData, {

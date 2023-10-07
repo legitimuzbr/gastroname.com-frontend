@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Items from "./Items";
+import AddCategoryButton from "../Components/AddCategoryButton";
+import Icon from "../Components/Icon";
 
-const Menu = () => {
+const Menu = (props) => {
   const { userId } = useParams();
 
   const [categories, setCategories] = useState([]);
@@ -17,6 +19,20 @@ const Menu = () => {
   useEffect(() => {
     getCategories();
   }, []);
+
+  const deleteCategory = async (itemId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/deleteCategory/${itemId}`
+      );
+      if (response.status === 200) {
+        console.log("Item deleted successfully");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error("Error deleting the item", error);
+    }
+  };
 
   const [items, setItems] = useState([]);
 
@@ -55,8 +71,9 @@ const Menu = () => {
         </div>
         {!selectedCategory && (
           <div className="row">
+            {props.edit && <AddCategoryButton />}
             {categories.map((category, index) => (
-              <div className="col-md-4 mb-3" key={index}>
+              <div className="col-md-4 mb-3 d-flex" key={index}>
                 <button
                   className={`btn w-100 p-3 ${
                     category === selectedCategory
@@ -67,6 +84,14 @@ const Menu = () => {
                 >
                   {category.name}
                 </button>
+                {props.edit && (
+                  <button
+                    className={`btn w-20 p-3} border rounded`}
+                    onClick={() => deleteCategory(category.id)}
+                  >
+                    <Icon icon="remove" />
+                  </button>
+                )}
               </div>
             ))}
           </div>
