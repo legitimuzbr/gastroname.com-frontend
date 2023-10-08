@@ -4,7 +4,7 @@ export default function Card(props) {
   const deleteItem = async (itemId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/deleteItem/${itemId}`
+        `https://api.gastroname.com/deleteItem/${itemId}`
       );
       if (response.status === 200) {
         console.log("Item deleted successfully");

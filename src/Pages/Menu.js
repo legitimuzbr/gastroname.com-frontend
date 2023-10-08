@@ -7,7 +7,7 @@ import Icon from "../Components/Icon";
 import AddItemButton from "../Components/AddItemButton";
 
 const Menu = (props) => {
-  const { userName } = useParams();
+  const { userId } = useParams();
 
   const [categories, setCategories] = useState([]);
 
