@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Items from "./Items";
 import AddCategoryButton from "../Components/AddCategoryButton";
 import Icon from "../Components/Icon";
+import AddItemButton from "../Components/AddItemButton";
 
 const Menu = (props) => {
   const { userId } = useParams();
@@ -20,10 +21,10 @@ const Menu = (props) => {
     getCategories();
   }, []);
 
-  const deleteCategory = async (itemId) => {
+  const deleteCategory = async (categoryId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/deleteCategory/${itemId}`
+        `https://api.gastroname.com/deleteCategory/${categoryId}`
       );
       if (response.status === 200) {
         console.log("Item deleted successfully");
@@ -86,7 +87,7 @@ const Menu = (props) => {
                 </button>
                 {props.edit && (
                   <button
-                    className={`btn w-20 p-3} border rounded`}
+                    className={`btn w-20 p-3} border rounded bg-dark text-light`}
                     onClick={() => deleteCategory(category.id)}
                   >
                     <Icon icon="remove" />
@@ -98,7 +99,16 @@ const Menu = (props) => {
         )}
 
         {selectedCategory && (
-          <Items items={items} selectedCategory={selectedCategory} />
+          <>
+            <Items
+              items={items}
+              selectedCategory={selectedCategory}
+              edit={props.edit}
+            />
+            {props.edit && (
+              <AddItemButton selectedCategoryId={selectedCategory} />
+            )}
+          </>
         )}
       </div>
     </>

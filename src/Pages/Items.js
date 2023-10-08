@@ -1,7 +1,7 @@
 import Card from "../Components/Card";
 import Icon from "../Components/Icon";
 
-const Items = ({ items, selectedCategory }) => {
+const Items = (props) => {
   return (
     <>
       <div className="d-flex mb-3">
@@ -16,8 +16,8 @@ const Items = ({ items, selectedCategory }) => {
         </button>
       </div>
 
-      {items
-        .filter((item) => item.categoryId === selectedCategory)
+      {props.items
+        .filter((item) => item.categoryId === props.selectedCategory)
         .map((item, index) => (
           <div className="col-12 col-md-8">
             <Card
@@ -26,6 +26,8 @@ const Items = ({ items, selectedCategory }) => {
               description={item.description}
               image={item.image}
               price={item.price}
+              edit={props.edit}
+              itemId={item.id}
             />
           </div>
         ))}
