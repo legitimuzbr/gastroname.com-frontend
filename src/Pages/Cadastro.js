@@ -14,7 +14,7 @@ export default function Cadastro() {
     formData.append("id", username);
   
     try {
-      await axios.post("http://localhost:4000/addUser", formData, {
+      await axios.post("http://api.gastroname.com/addUser", formData, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
