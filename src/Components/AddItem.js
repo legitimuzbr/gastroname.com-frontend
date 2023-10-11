@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function AddItem() {
-  const { userId } = useParams(); // Captura o parâmetro da URL
+  const { userId } = useParams();
 
   const [categories, setCategories] = useState([]);
 

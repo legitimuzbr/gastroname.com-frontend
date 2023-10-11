@@ -9,8 +9,7 @@ export default function AddItemButton(props) {
     setShowModal(!showModal);
   };
 
-  const { userId } = useParams(); // Captura o parâmetro da URL
-
+  const { userId } = useParams();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

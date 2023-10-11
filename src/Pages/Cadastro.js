@@ -19,12 +19,9 @@ export default function Cadastro() {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       });
-
-      // Redireciona para a nova URL após sucesso
     window.location.href = `https://gastroname.com/${username}/edit`;
 
     } catch (error) {
-      // Se a resposta da API contiver uma mensagem de erro, mostre-a. Caso contrário, mostre uma mensagem genérica.
       const errorMessage = error.response && error.response.data && error.response.data.message
         ? error.response.data.message
         : 'An error occurred while processing your request.';

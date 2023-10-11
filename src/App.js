@@ -12,6 +12,7 @@ export default function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/:userId" element={<Menu />} />
         <Route path="/:userId/edit" element={<Edit />} />
+        <Route path="/*" element={<h1>Página não encontrada</h1>} />
       </Routes>
     </BrowserRouter>
   );
